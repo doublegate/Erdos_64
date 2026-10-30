@@ -1,0 +1,58 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\begin{thebibliography}{18}
+
+\bibitem{bass1992ihara}
+H.~Bass, \emph{The {I}hara-{S}elberg zeta function of a tree lattice}, Int. J. Math. \textbf{3} (1992), no.~6, 717--797.
+
+\bibitem{blanusa1946problem}
+D.~Blanu{\v{s}}a, \emph{Problem {\v{c}}etiriju boja (The four-color problem)}, Glasnik Matemati{\v{c}}ko-Fizi{\v{c}}ki i Astronomski, Ser. II \textbf{1} (1946), 31--42.
+
+\bibitem{daniel2001erdos}
+D.~Daniel and S.~E.~Shauger, \emph{A result on the {E}rd{\H{o}}s--{G}y{\'a}rf{\'a}s conjecture in planar graphs}, Congr. Numer. \textbf{153} (2001), 129--139.
+
+\bibitem{dirac1952some}
+G.~A.~Dirac, \emph{Some theorems on abstract graphs}, Proc. London Math. Soc. \textbf{2} (1952), no.~1, 69--81.
+
+\bibitem{ducoffe2026structured}
+G.~Ducoffe and B.~Dumitru, \emph{Towards a more structured search for {E}rd{\H{o}}s--{G}y{\'a}rf{\'a}s counter-examples}, arXiv preprint arXiv:2609.28594 (2026).
+
+\bibitem{erdos1997some}
+P.~Erd{\H{o}}s, \emph{Some of my favourite unsolved problems}, Math. Japon. \textbf{46} (1997), no.~1, 327--337.
+
+\bibitem{exoo2013dynamic}
+G.~Exoo and R.~Jajcay, \emph{Dynamic cage survey}, Electron. J. Combin. \textbf{DS16} (2013), 1--55.
+
+\bibitem{garcia2026sat}
+D.~Garcia, \emph{SAT-based {DRAT}-certified searches for small graphs without power-of-two cycles}, arXiv preprint arXiv:2609.04686 (2026).
+
+\bibitem{hashimoto1989zeta}
+K.~Hashimoto, \emph{Zeta functions of finite graphs and representations of $p$-adic groups}, Adv. Stud. Pure Math. \textbf{15} (1989), 211--280.
+
+\bibitem{heckman2013erdos}
+C.~C.~Heckman and R.~Krakovski, \emph{Erd{\H{o}}s--Gy{\'a}rf{\'a}s conjecture for cubic planar graphs}, Electron. J. Combin. \textbf{20} (2013), no.~2, P7.
+
+\bibitem{isaacs1975infinite}
+R.~Isaacs, \emph{Infinite families of nontrivial trivalent graphs which are not {T}ait colorable}, Amer. Math. Monthly \textbf{82} (1975), no.~3, 221--239.
+
+\bibitem{kassis2026bipartite}
+E.~Kassis et~al., \emph{Computational bounds for cubic bipartite graphs avoiding cycles of length $2^k$}, arXiv preprint arXiv:2609.00065 (2026).
+
+\bibitem{liu2020solution}
+H.~Liu and R.~Montgomery, \emph{A solution to {E}rd{\H{o}}s and {G}y{\'a}rf{\'a}s's conjecture on cycles of length power of two}, J. Amer. Math. Soc. \textbf{36} (2023), no.~3, 791--861.
+
+\bibitem{markstrom2004extremal}
+K.~Markstr{\"o}m, \emph{Extremal graphs for some problems on cycles in graphs}, Congr. Numer. \textbf{171} (2004), 179--192.
+
+\bibitem{petersen1891theorie}
+J.~Petersen, \emph{Die {T}heorie der regul{\"a}ren graphs}, Acta Math. \textbf{15} (1891), no.~1, 193--220.
+
+\bibitem{shauger1998results}
+S.~E.~Shauger, \emph{Results on the {E}rd{\H{o}}s--{G}y{\'a}rf{\'a}s conjecture in $K_{1,m}$-free graphs}, Congr. Numer. \textbf{134} (1998), 61--65.
+
+\bibitem{tranquilli2026bipartite}
+J.~Tranquilli, \emph{A 60-Vertex Lower Bound for Cubic Bipartite Counterexamples to the {E}rd{\H{o}}s--{G}y{\'a}rf{\'a}s Conjecture}, arXiv preprint arXiv:2608.02675 (2026).
+
+\bibitem{tutte1947family}
+W.~T.~Tutte, \emph{A family of cubical graphs}, Proc. Cambridge Philos. Soc. \textbf{43} (1947), no.~4, 459--474.
+
+\end{thebibliography}

@@ -1,0 +1,31 @@
+{
+  "process": {
+    "compiler": "pdflatex"
+  },
+  "sources": [
+    {
+      "filename": "manuscript.tex",
+      "usage": "toplevel"
+    },
+    {
+      "filename": "anc/README_ancillary.txt",
+      "usage": "ancillary"
+    },
+    {
+      "filename": "anc/64.lean",
+      "usage": "ancillary"
+    },
+    {
+      "filename": "anc/verify_erdos64_chebyshev_hashimoto_closure.py",
+      "usage": "ancillary"
+    },
+    {
+      "filename": "anc/chebyshev_hashimoto_certificates.json",
+      "usage": "ancillary"
+    },
+    {
+      "filename": "anc/erdos64_certification_summary.json",
+      "usage": "ancillary"
+    }
+  ]
+}

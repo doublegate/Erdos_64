@@ -1,0 +1,395 @@
+{
+  "problem": "Erdos Problem #64 ($1,000 Erdos-Gyarfas 2^k-Cycle Conjecture)",
+  "reference_url": "https://www.erdosproblems.com/64",
+  "author": "Lucas Parobek",
+  "date": "2026-10-27",
+  "crate_version": "0.2.0",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "licenses": {
+    "code_and_lean4": "MIT OR Apache-2.0",
+    "manuscript_and_data": "CC-BY-4.0"
+  },
+  "chebyshev_hashimoto_polynomials": {
+    "P_2": {
+      "expr": "x - 3",
+      "eval_at_9": 6,
+      "formula": "2^2 + 2"
+    },
+    "P_4": {
+      "expr": "x^2 - 8*x + 9",
+      "eval_at_9": 18,
+      "formula": "2^4 + 2",
+      "doubling": "(P_2(x) - 1)^2 - 7"
+    },
+    "P_6": {
+      "expr": "x^3 - 12*x^2 + 36*x - 15",
+      "eval_at_9": 66,
+      "formula": "2^6 + 2"
+    },
+    "P_8": {
+      "expr": "x^4 - 16*x^3 + 80*x^2 - 128*x + 33",
+      "eval_at_9": 258,
+      "formula": "2^8 + 2",
+      "doubling": "(P_4(x) - 1)^2 - 31"
+    },
+    "P_10": {
+      "expr": "x^5 - 20*x^4 + 140*x^3 - 400*x^2 + 400*x - 63",
+      "eval_at_9": 1026,
+      "formula": "2^10 + 2"
+    },
+    "P_12": {
+      "expr": "x^6 - 24*x^5 + 216*x^4 - 896*x^3 + 1680*x^2 - 1152*x + 129",
+      "eval_at_9": 4098,
+      "formula": "2^12 + 2",
+      "doubling": "(P_6(x) - 1)^2 - 127"
+    },
+    "P_14": {
+      "expr": "x^7 - 28*x^6 + 308*x^5 - 1680*x^4 + 4704*x^3 - 6272*x^2 + 3136*x - 255",
+      "eval_at_9": 16386,
+      "formula": "2^14 + 2",
+      "recurrence": "(x - 4)*P_12(x) - 4*P_10(x) - (x - 9)"
+    },
+    "P_16": {
+      "expr": "x^8 - 32*x^7 + 416*x^6 - 2816*x^5 + 10560*x^4 - 21504*x^3 + 21504*x^2 - 8192*x + 513",
+      "eval_at_9": 65538,
+      "formula": "2^16 + 2",
+      "doubling": "(P_8(x) - 1)^2 - 511"
+    }
+  },
+  "spectral_moore_exclusions": {
+    "moore_3_8_bipartite": {
+      "theorem": "Theorem 2.4(c)",
+      "hankel_det_h3_at_c6_0": "144 * n^2 * (n - 31*r) >= 0",
+      "bipartite_r2_min_n": 62,
+      "conclusion": "No bipartite cubic graph of girth g >= 8 with C_8(G) = 0 exists for n < 62; hence C_6(G) >= 1 across 50 <= n <= 60."
+    },
+    "moore_3_10_at_n62": {
+      "theorem": "Theorem 2.6(b)",
+      "order_n": 62,
+      "r": 2,
+      "stieltjes_lower_bound_5c10": 1488,
+      "hausdorff_upper_bound_5c10": 1488,
+      "integer_interval_C10": [298, 297],
+      "conclusion": "5 * C_10(G) = 1488 has no integer solution ([298, 297] = empty); no (3,10)-Moore graph on n = 62 exists, so C_6(G) >= 1 for all bipartite C_4 = C_8 = 0 cubic graphs on 50 <= n <= 62."
+    },
+    "moore_3_14_at_n254": {
+      "theorem": "Theorem 2.8(b)",
+      "order_n_r1": 127,
+      "order_n_r2": 254,
+      "pinched_b14": 384,
+      "tr_b14_r1": 48768,
+      "tr_b14_r2": 97536,
+      "mod_28_r1": 20,
+      "mod_28_r2": 12,
+      "conclusion": "det H_4(mu) = 13824 * n^3 * (n - 127*r) = 0 pinches b_14 = 384, forcing Tr(B^14) = 384 * 127 * r != 0 (mod 28), contradicting Tr(B^14) = 28 * C_14(G) and ruling out the (3,14)-Moore graph at n = 127 and n = 254."
+    }
+  },
+  "canonical_cages_and_snarks_theorem_2_1": [
+    {
+      "name": "K4 (Tetrahedron)",
+      "family": "(3,3)-cage",
+      "n": 4, "m": 6, "girth": 3,
+      "C4": 3, "C8": 0, "C16": 0,
+      "bipartite": false, "two_edge_connected": true
+    },
+    {
+      "name": "K3,3 (Utility)",
+      "family": "(3,4)-cage",
+      "n": 6, "m": 9, "girth": 4,
+      "C4": 9, "C8": 0, "C16": 0,
+      "bipartite": true, "two_edge_connected": true
+    },
+    {
+      "name": "Cube Q3",
+      "family": "GP(4,1)",
+      "n": 8, "m": 12, "girth": 4,
+      "C4": 6, "C8": 6, "C16": 0,
+      "bipartite": true, "two_edge_connected": true
+    },
+    {
+      "name": "Wagner M8",
+      "family": "Mobius ladder",
+      "n": 8, "m": 12, "girth": 4,
+      "C4": 4, "C8": 5, "C16": 0,
+      "bipartite": false, "two_edge_connected": true
+    },
+    {
+      "name": "Petersen GP(5,2)",
+      "family": "(3,5)-cage / Snark",
+      "n": 10, "m": 15, "girth": 5,
+      "C4": 0, "C8": 15, "C16": 0,
+      "bipartite": false, "two_edge_connected": true
+    },
+    {
+      "name": "Tietze graph",
+      "family": "Cubic non-Ham.",
+      "n": 12, "m": 18, "girth": 3,
+      "C4": 0, "C8": 9, "C16": 0,
+      "bipartite": false, "two_edge_connected": true
+    },
+    {
+      "name": "Heawood graph",
+      "family": "(3,6)-cage PG(2,2)",
+      "n": 14, "m": 21, "girth": 6,
+      "C4": 0, "C8": 21, "C16": 0,
+      "bipartite": true, "two_edge_connected": true
+    },
+    {
+      "name": "Mobius-Kantor",
+      "family": "GP(8,3)",
+      "n": 16, "m": 24, "girth": 6,
+      "C4": 0, "C8": 30, "C16": 6,
+      "bipartite": true, "two_edge_connected": true
+    },
+    {
+      "name": "Pappus graph",
+      "family": "Levi (9_3)",
+      "n": 18, "m": 27, "girth": 6,
+      "C4": 0, "C8": 54, "C16": 216,
+      "bipartite": true, "two_edge_connected": true
+    },
+    {
+      "name": "Blanusa Snark B1",
+      "family": "Snark (n=18)",
+      "n": 18, "m": 27, "girth": 5,
+      "C4": 0, "C8": 12, "C16": 101,
+      "bipartite": false, "two_edge_connected": true
+    },
+    {
+      "name": "Desargues graph",
+      "family": "GP(10,3)",
+      "n": 20, "m": 30, "girth": 6,
+      "C4": 0, "C8": 30, "C16": 360,
+      "bipartite": true, "two_edge_connected": true
+    },
+    {
+      "name": "Dodecahedron",
+      "family": "GP(10,2)",
+      "n": 20, "m": 30, "girth": 5,
+      "C4": 0, "C8": 30, "C16": 90,
+      "bipartite": false, "two_edge_connected": true
+    },
+    {
+      "name": "Flower Snark J5",
+      "family": "Isaacs Snark",
+      "n": 20, "m": 30, "girth": 5,
+      "C4": 0, "C8": 15, "C16": 180,
+      "bipartite": false, "two_edge_connected": true
+    },
+    {
+      "name": "GP(11,2)",
+      "family": "Gen. Petersen",
+      "n": 22, "m": 33, "girth": 5,
+      "C4": 0, "C8": 33, "C16": 220,
+      "bipartite": false, "two_edge_connected": true
+    },
+    {
+      "name": "McGee graph",
+      "family": "(3,7)-cage",
+      "n": 24, "m": 36, "girth": 7,
+      "C4": 0, "C8": 34, "C16": 492,
+      "bipartite": false, "two_edge_connected": true
+    },
+    {
+      "name": "Nauru graph",
+      "family": "GP(12,5)",
+      "n": 24, "m": 36, "girth": 6,
+      "C4": 0, "C8": 54, "C16": 1062,
+      "bipartite": true, "two_edge_connected": true
+    },
+    {
+      "name": "Coxeter graph",
+      "family": "Symmetric (g=7)",
+      "n": 28, "m": 42, "girth": 7,
+      "C4": 0, "C8": 21, "C16": 609,
+      "bipartite": false, "two_edge_connected": true
+    },
+    {
+      "name": "Tutte-Coxeter",
+      "family": "(3,8)-cage GQ(2,2)",
+      "n": 30, "m": 45, "girth": 8,
+      "C4": 0, "C8": 90, "C16": 1620,
+      "bipartite": true, "two_edge_connected": true
+    }
+  ],
+  "phase2_open_frontier_voltage_lifts_theorem_2_2": [
+    {
+      "name": "Frontier GP(25,7)",
+      "construction": "Z_25 Theta-Lift",
+      "n": 50, "m": 75, "girth": 8,
+      "C4": 0, "C8": 25, "C16": 1925, "C32_anchor0": 888,
+      "bipartite": false
+    },
+    {
+      "name": "Frontier GP(26,5)",
+      "construction": "Z_26 Theta-Lift",
+      "n": 52, "m": 78, "girth": 8,
+      "C4": 0, "C8": 78, "C16": 2938, "C32_anchor0": null,
+      "bipartite": true
+    },
+    {
+      "name": "Gray Graph",
+      "construction": "LCF [-25,7,-7,13,-13,25]^9",
+      "n": 54, "m": 81, "girth": 8,
+      "C4": 0, "C8": 81, "C16": 2754, "C32_anchor0": null,
+      "bipartite": true
+    },
+    {
+      "name": "Frontier GP(28,5)",
+      "construction": "Z_28 Theta-Lift",
+      "n": 56, "m": 84, "girth": 8,
+      "C4": 0, "C8": 56, "C16": 3570, "C32_anchor0": null,
+      "bipartite": true
+    },
+    {
+      "name": "Dipole Z_29(0,1,8)",
+      "construction": "Z_29 Dipole-Lift",
+      "n": 58, "m": 87, "girth": 6,
+      "C4": 0, "C8": 29, "C16": 1305, "C32_anchor0": 12203,
+      "bipartite": true
+    },
+    {
+      "name": "Frontier GP(30,7)",
+      "construction": "Z_30 Theta-Lift",
+      "n": 60, "m": 90, "girth": 8,
+      "C4": 0, "C8": 60, "C16": 3810, "C32_anchor0": null,
+      "bipartite": true
+    },
+    {
+      "name": "Dipole Z_31(0,1,6)",
+      "construction": "Z_31 Dipole-Lift",
+      "n": 62, "m": 93, "girth": 6,
+      "C4": 0, "C8": 0, "C16": 2883, "C32_anchor0": 616,
+      "bipartite": true
+    }
+  ],
+  "phase3_frontier_chebyshev_bessel_cascade": [
+    {
+      "name": "Abelian Opt Z_25(0,1,10)",
+      "n": 50, "girth": 6, "C4": 0, "C6": 25, "C8": 0, "C10": 125, "C12": 450, "C14": 1550,
+      "actual_C16": 2550, "tr_b16_div_32": 4150, "n16_div_32": 1600,
+      "n16_dumbbell_div_32": 300, "n16_theta_div_32": 1300,
+      "tau_1": 75, "tau_3": 0, "beta_1": 75,
+      "bessel_1d_c16_lb": 1937, "bessel_2d_c16_lb": 1938, "bessel_3d_c16_lb": 2184, "bessel_4d_c16_lb": 2418,
+      "tabu_c16_min_g6": 1417, "tabu_c16_min_g5": 1143
+    },
+    {
+      "name": "Crossed LCF [11,13,-13,-11]^13",
+      "n": 52, "girth": 6, "C4": 0, "C6": 26, "C8": 0, "C10": 130, "C12": 442, "C14": 1482,
+      "actual_C16": 2483, "tr_b16_div_32": 4095, "n16_div_32": 1612,
+      "n16_dumbbell_div_32": 312, "n16_theta_div_32": 1300,
+      "tau_1": 78, "tau_3": 0, "beta_1": 78,
+      "bessel_1d_c16_lb": 1898, "bessel_2d_c16_lb": 1919, "bessel_3d_c16_lb": 2124, "bessel_4d_c16_lb": 2278,
+      "tabu_c16_min_g6": 1463, "tabu_c16_min_g5": 1204
+    },
+    {
+      "name": "Abelian Opt Z_27(0,1,6)",
+      "n": 54, "girth": 6, "C4": 0, "C6": 27, "C8": 0, "C10": 135, "C12": 450, "C14": 1512,
+      "actual_C16": 2484, "tr_b16_div_32": 4158, "n16_div_32": 1674,
+      "n16_dumbbell_div_32": 324, "n16_theta_div_32": 1350,
+      "tau_1": 81, "tau_3": 0, "beta_1": 81,
+      "bessel_1d_c16_lb": 1811, "bessel_2d_c16_lb": 1861, "bessel_3d_c16_lb": 2088, "bessel_4d_c16_lb": 2216,
+      "tabu_c16_min_g6": 1418, "tabu_c16_min_g5": 1176
+    },
+    {
+      "name": "Non-Abelian Per_3(Z_27;3,3,9)",
+      "n": 54, "girth": 6, "C4": 0, "C6": 27, "C8": 0, "C10": 135, "C12": 432, "C14": 1431,
+      "actual_C16": 2385, "tr_b16_div_32": 3996, "n16_div_32": 1611,
+      "n16_dumbbell_div_32": 297, "n16_theta_div_32": 1314,
+      "tau_1": 54, "tau_3": 9, "beta_1": 54,
+      "bessel_1d_c16_lb": 581, "bessel_2d_c16_lb": 638, "bessel_3d_c16_lb": 863, "bessel_4d_c16_lb": 931,
+      "tabu_c16_min_g6": 1538, "tabu_c16_min_g5": 1036
+    },
+    {
+      "name": "Crossed LCF [11,45,-45,-11]^14",
+      "n": 56, "girth": 6, "C4": 0, "C6": 28, "C8": 0, "C10": 140, "C12": 434, "C14": 1484,
+      "actual_C16": 2331, "tr_b16_div_32": 4067, "n16_div_32": 1736,
+      "n16_dumbbell_div_32": 336, "n16_theta_div_32": 1400,
+      "tau_1": 84, "tau_3": 0, "beta_1": 84,
+      "bessel_1d_c16_lb": 1724, "bessel_2d_c16_lb": 1804, "bessel_3d_c16_lb": 1957, "bessel_4d_c16_lb": 2094,
+      "tabu_c16_min_g6": 1569, "tabu_c16_min_g5": 1099
+    },
+    {
+      "name": "Abelian Opt Z_29(0,1,9)",
+      "n": 58, "girth": 6, "C4": 0, "C6": 29, "C8": 0, "C10": 145, "C12": 435, "C14": 1624,
+      "actual_C16": 2552, "tr_b16_div_32": 4350, "n16_div_32": 1798,
+      "n16_dumbbell_div_32": 348, "n16_theta_div_32": 1450,
+      "tau_1": 87, "tau_3": 0, "beta_1": 87,
+      "bessel_1d_c16_lb": 1637, "bessel_2d_c16_lb": 1746, "bessel_3d_c16_lb": 1869, "bessel_4d_c16_lb": 2060,
+      "tabu_c16_min_g6": 1307, "tabu_c16_min_g5": 1098
+    },
+    {
+      "name": "Non-Abelian LCF [17,-17,45,-45]^15",
+      "n": 60, "girth": 6, "C4": 0, "C6": 30, "C8": 0, "C10": 150, "C12": 435, "C14": 1530,
+      "actual_C16": 2340, "tr_b16_div_32": 4200, "n16_div_32": 1860,
+      "n16_dumbbell_div_32": 360, "n16_theta_div_32": 1500,
+      "tau_1": 90, "tau_3": 0, "beta_1": 90,
+      "bessel_1d_c16_lb": 1550, "bessel_2d_c16_lb": 1688, "bessel_3d_c16_lb": 1765, "bessel_4d_c16_lb": 1903,
+      "tabu_c16_min_g6": 1342, "tabu_c16_min_g5": 1149
+    },
+    {
+      "name": "Dipole Lift Z_31(0,1,6)",
+      "n": 62, "girth": 6, "C4": 0, "C6": 31, "C8": 0, "C10": 93, "C12": 403, "C14": 1953,
+      "actual_C16": 2883, "tr_b16_div_32": 4185, "n16_div_32": 1302,
+      "n16_dumbbell_div_32": 372, "n16_theta_div_32": 930,
+      "tau_1": 93, "tau_3": 0, "beta_1": 93,
+      "bessel_1d_c16_lb": 2026, "bessel_2d_c16_lb": 2015, "bessel_3d_c16_lb": 2649, "bessel_4d_c16_lb": 2867,
+      "tabu_c16_min_g6": 1468, "tabu_c16_min_g5": 1296
+    },
+    {
+      "name": "Abelian Opt Z_31(0,1,12)",
+      "n": 62, "girth": 6, "C4": 0, "C6": 31, "C8": 0, "C10": 155, "C12": 434, "C14": 1550,
+      "actual_C16": 2294, "tr_b16_div_32": 4216, "n16_div_32": 1922,
+      "n16_dumbbell_div_32": 372, "n16_theta_div_32": 1550,
+      "tau_1": 93, "tau_3": 0, "beta_1": 93,
+      "bessel_1d_c16_lb": 1463, "bessel_2d_c16_lb": 1468, "bessel_3d_c16_lb": 1581, "bessel_4d_c16_lb": 1776,
+      "tabu_c16_min_g6": 1202, "tabu_c16_min_g5": 1055
+    },
+    {
+      "name": "Abelian Opt Z_32(0,1,7)",
+      "n": 64, "girth": 6, "C4": 0, "C6": 32, "C8": 0, "C10": 160, "C12": 432, "C14": 1536,
+      "actual_C16": 2232, "tr_b16_div_32": 4216, "n16_div_32": 1984,
+      "n16_dumbbell_div_32": 384, "n16_theta_div_32": 1600,
+      "tau_1": 96, "tau_3": 0, "beta_1": 96,
+      "bessel_1d_c16_lb": 1375, "bessel_2d_c16_lb": 1506, "bessel_3d_c16_lb": 1523, "bessel_4d_c16_lb": 1666,
+      "tabu_c16_min_g6": 1271, "tabu_c16_min_g5": 1071
+    },
+    {
+      "name": "Metacyclic Z_8 x_3 Z_4(1,0;0,1)",
+      "n": 64, "girth": 8, "C4": 0, "C6": 0, "C8": 16, "C10": 64, "C12": 224, "C14": 768,
+      "actual_C16": 3652, "tr_b16_div_32": 3692, "n16_div_32": 40,
+      "n16_dumbbell_div_32": 0, "n16_theta_div_32": 32,
+      "tau_1": 0, "tau_3": 0, "beta_1": 0,
+      "bessel_1d_c16_lb": null, "bessel_2d_c16_lb": null, "bessel_3d_c16_lb": null, "bessel_4d_c16_lb": null,
+      "tabu_c16_min_g6": null, "tabu_c16_min_g5": null
+    }
+  ],
+  "multi_octave_perron_dominance_cascade": {
+    "formula": "N_k(r) = floor(r * (2^(2^(k+1)) + 6 * 2^(2^k) + 2) / (2 * (2^(2^k) - 1)))",
+    "octaves": [
+      { "k": 2, "cycle_length": 8, "perron_eval": 258, "N_k_r1": 11, "N_k_r2": 23 },
+      { "k": 3, "cycle_length": 16, "perron_eval": 65538, "N_k_r1": 131, "N_k_r2": 263 },
+      { "k": 4, "cycle_length": 32, "perron_eval": "2^32 + 2 = 4294967298", "N_k_r1": 32771, "N_k_r2": 65542 },
+      { "k": 5, "cycle_length": 64, "perron_eval": "2^64 + 2", "N_k_r1": 2147483651, "N_k_r2": 4294967302 }
+    ]
+  },
+  "lean4_verified_theorems": [
+    { "index": 1, "name": "petersenGraph_has_8_cycle", "line": 79, "theorem_ref": "Theorem 2.1", "tactic": "decide" },
+    { "index": 2, "name": "heawoodGraph_has_8_cycle", "line": 101, "theorem_ref": "Theorem 2.1", "tactic": "decide" },
+    { "index": 3, "name": "chebyshev_hashimoto_doubling_at_9", "line": 143, "theorem_ref": "Theorem 2.4(a)", "tactic": "decide" },
+    { "index": 4, "name": "chebyshev_hashimoto_variance_floor", "line": 152, "theorem_ref": "Theorem 2.4(b)", "tactic": "omega" },
+    { "index": 5, "name": "girth9_c16_pos_up_to_131", "line": 163, "theorem_ref": "Theorem 2.4(b)", "tactic": "decide" },
+    { "index": 6, "name": "hankel_h3_bipartite_girth8_floor", "line": 178, "theorem_ref": "Theorem 2.4(c)", "tactic": "decide + omega" },
+    { "index": 7, "name": "cubic_handshaking_cut_vertex_exclusion", "line": 195, "theorem_ref": "Theorem 2.5(a)", "tactic": "omega" },
+    { "index": 8, "name": "order10_polynomial_eval_at_9", "line": 204, "theorem_ref": "Theorem 2.6(a)", "tactic": "decide" },
+    { "index": 9, "name": "order10_moore_graph_62_exclusion", "line": 216, "theorem_ref": "Theorem 2.6(b)", "tactic": "omega" },
+    { "index": 10, "name": "order10_bessel_c16_pos_up_to_90", "line": 227, "theorem_ref": "Theorem 2.6(c)", "tactic": "decide + omega" },
+    { "index": 11, "name": "order12_polynomial_doubling_identity", "line": 241, "theorem_ref": "Theorem 2.7(a)", "tactic": "decide" },
+    { "index": 12, "name": "order12_girth12_14_c16_pos_bounds", "line": 254, "theorem_ref": "Theorem 2.7(b)", "tactic": "decide" },
+    { "index": 13, "name": "order14_chebyshev_recurrence_identity", "line": 268, "theorem_ref": "Theorem 2.8(a)", "tactic": "decide" },
+    { "index": 14, "name": "order14_moore_graph_254_exclusion", "line": 281, "theorem_ref": "Theorem 2.8(b)", "tactic": "omega" },
+    { "index": 15, "name": "order14_4d_bessel_c16_pos_up_to_1020", "line": 290, "theorem_ref": "Theorem 2.8(b)", "tactic": "decide + omega" },
+    { "index": 16, "name": "theta_and_prism_cycle_sum_conservation", "line": 309, "theorem_ref": "Theorem 2.9(a)-(b)", "tactic": "omega" },
+    { "index": 17, "name": "dyadic_hashimoto_perron_dominance", "line": 321, "theorem_ref": "Theorem 2.10(a)", "tactic": "omega" }
+  ]
+}

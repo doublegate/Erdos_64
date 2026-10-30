@@ -1,0 +1,19 @@
+import Erdos64.Proofs
+
+#print axioms Erdos64.petersenGraph_has_8_cycle
+#print axioms Erdos64.heawoodGraph_has_8_cycle
+#print axioms Erdos64.chebyshev_hashimoto_doubling_at_9
+#print axioms Erdos64.chebyshev_hashimoto_variance_floor
+#print axioms Erdos64.girth9_c16_pos_up_to_131
+#print axioms Erdos64.hankel_h3_bipartite_girth8_floor
+#print axioms Erdos64.cubic_handshaking_cut_vertex_exclusion
+#print axioms Erdos64.order10_polynomial_eval_at_9
+#print axioms Erdos64.order10_moore_graph_62_exclusion
+#print axioms Erdos64.order10_bessel_c16_pos_up_to_90
+#print axioms Erdos64.order12_polynomial_doubling_identity
+#print axioms Erdos64.order12_girth12_14_c16_pos_bounds
+#print axioms Erdos64.order14_chebyshev_recurrence_identity
+#print axioms Erdos64.order14_moore_graph_254_exclusion
+#print axioms Erdos64.order14_4d_bessel_c16_pos_up_to_1020
+#print axioms Erdos64.theta_and_prism_cycle_sum_conservation
+#print axioms Erdos64.dyadic_hashimoto_perron_dominance
