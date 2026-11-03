@@ -1,5 +1,7 @@
 # How Erdős Problem #64 (The Erdős–Gyárfás $2 ^ k$-Cycle Conjecture) Was Closed Across All Finite Orders: A Plain-Language Companion Explainer, Worked Examples, and Theorem-by-Theorem Architecture Guide
 
+> **Status (2026-11-03): the claimed resolution of Erdős Problem #64 described below is withdrawn; the problem remains open. See the status note in the repository [README](../README.md) for the specific errors and what still stands.**
+
 **Companion Expository Guide to:** <i>"Erdős Problem #64 (1,000 USD Prize): Multi-Octave Chebyshev–Hashimoto Spectral–Topological Discharging Closure of the Erdős–Gyárfás $2 ^ k$-Cycle Conjecture"</i>  
 **Author:** Lucas Parobek (`parobek@gmail.com`) | **Date:** October 27, 2026  
 **Public Verification Repository:** [`https://github.com/doublegate/Erdos_64`](https://github.com/doublegate/Erdos_64)  

@@ -2,6 +2,12 @@
 
 All notable changes to `erdos64` are documented in this file.
 
+## [Unreleased] - 2026-11-03
+
+### Withdrawn
+- The claim that this repository resolves Erdős Problem #64 is **withdrawn**: the problem remains open. An independent review on 2026-11-03 found the main argument invalid. The README status note gives the specific errors and lists what still stands.
+- Retitled the README and the `Cargo.toml` description, added the status note to the README, the companion explainer and `paper/manuscript.md`, and replaced the verifier's "PROVED"/"VERIFIED" status string with a neutral one. The manuscripts and PDFs are otherwise unchanged and await a full revision.
+
 ## [0.2.0] - 2026-10-27
 
 ### Added

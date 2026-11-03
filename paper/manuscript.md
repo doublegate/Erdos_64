@@ -1,5 +1,7 @@
 # Erdős Problem #64 (1,000 USD Prize): Multi-Octave Chebyshev–Hashimoto Spectral–Topological Discharging Closure of the Erdős–Gyárfás $2 ^ k$-Cycle Conjecture
 
+> **Status (2026-11-03): the claimed resolution of Erdős Problem #64 described below is withdrawn; the problem remains open. See the status note in the repository [README](../README.md) for the specific errors and what still stands.**
+
 **Author:** Lucas Parobek ([`https://github.com/doublegate/Erdos_64`](https://github.com/doublegate/Erdos_64))  
 **Date:** October 27, 2026
 

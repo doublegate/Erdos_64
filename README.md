@@ -1,4 +1,15 @@
-# `erdos64` — Hybrid CPU+CUDA Certification, 17-Theorem Lean 4 Formalization & Multi-Octave Discharging Closure for Erdős Problem #64 (1,000 USD Prize)
+# `erdos64` — Hashimoto Trace Identities, Cage Cycle Counts & Lean 4 Arithmetic Checks for Erdős Problem #64 (Erdős–Gyárfás; open)
+
+> [!WARNING]
+> **Status (2026-11-03): Erdős Problem #64 (Erdős–Gyárfás) remains open. The claimed resolution in this repository is withdrawn.**
+>
+> An independent review found that the main argument does not hold:
+> - **The reduction from minimum degree 3 to cubic graphs is not proved.** The triangle-contraction step is also invalid: a 2^j-cycle through the contracted vertex lifts only to cycles of length 2^j + 1 or 2^j + 2.
+> - **The spectral step (Theorem 2.10, Corollary 2.11) carries no cycle information.** It assumes Tr(B^(2^k)) = 0, which having no simple 2^k-cycle does not imply. Its conclusion, Tr(B^(2^(k+1))) > 0, holds for every cubic graph in the claimed range, because non-simple walks dominate the trace. Bounding those walks is the actual problem, and it is not done.
+> - **The k = 3 case rests on checks of about 30 specific graphs.** A Lean docstring states a false determinant formula (counterexample: the Tutte 12-cage).
+> - **The Lean 4 files check integer arithmetic and two explicit 8-cycles.** Several theorems take the key inequality as a hypothesis, and no Lean statement mentions the conjecture.
+>
+> What stands: the trace polynomials and variance identities, and cycle counts for specific graphs (Petersen, Heawood, McGee, Tutte–Coxeter and others). The manuscript, explainer, tables and scripts below are kept unchanged for reference. Read every "closure" or "resolution" claim in them as withdrawn.
 
 [![License: MIT OR Apache-2.0](https://img.shields.io/badge/License-MIT%20OR%20Apache--2.0-blue.svg)](LICENSE)
 [![Paper License: CC-BY-4.0](https://img.shields.io/badge/Paper-CC--BY--4.0-green.svg)](LICENSE-PAPER)
