@@ -12,16 +12,24 @@ Authors: Lucas Parobek
 *Conjecture (Erdős–Gyárfás, 1995):* Every finite simple graph `G` with minimum degree
 `δ(G) ≥ 3` contains a simple cycle whose length is a power of two (`2^k` for some `k ≥ 2`).
 
+**Status (2026-11-03): Erdős Problem #64 is open.** The manuscript [Pa26] that these
+declarations accompany has been withdrawn after an independent review found its main argument
+invalid (see the repository README). What this file actually proves is limited to explicit
+8-cycles in the Petersen and Heawood graphs and elementary integer arithmetic (polynomial
+evaluations, bounded `decide` checks, `omega` facts). No declaration here mentions graphs other
+than those two, Hashimoto traces, or cycles in general, and none states the conjecture or any
+step of the withdrawn argument. Several declarations take the relevant inequality as a hypothesis.
+The descriptions below give the role each lemma was meant to play in [Pa26]; they are not claims
+that the corresponding manuscript theorem has been verified.
+
 This file provides 17 self-contained, zero-`sorry`, zero-custom-axiom Lean 4 (`v4.33.1`)
-theorems in strictly chronological manuscript order (Theorems 2.1 through 2.10), formally
-certifying the cage witnesses, algebraic, spectral, moment-determinant, and topological
-discharging pillars of [Pa26]:
+declarations, listed in the manuscript order of [Pa26] (Theorems 2.1 through 2.10):
 1. `petersenGraph_has_8_cycle` (Theorem 2.1 explicit `by decide` `8`-cycle certificate on `GP(5,2)`)
 2. `heawoodGraph_has_8_cycle` (Theorem 2.1 explicit `by decide` `8`-cycle certificate on `LCF [5,-5]^7`)
 3. `chebyshev_hashimoto_doubling_at_9` (Theorem 2.4(a) Chebyshev doubling at `λ^2 = 9`)
 4. `chebyshev_hashimoto_variance_floor` (Theorem 2.4(b) Cauchy–Schwarz variance floor on `Tr(B^16)`)
-5. `girth9_c16_pos_up_to_131` (Theorem 2.4(b) unconditional `C_16(G) > 0` for girth `g ≥ 9` up to `n ≤ 131`)
-6. `hankel_h3_bipartite_girth8_floor` (Theorem 2.4(c) `3 × 3` Hankel moment obstruction forcing `C_6 ≥ 1`)
+5. `girth9_c16_pos_up_to_131` (Theorem 2.4(b): positivity of an integer polynomial on a range; does not match the manuscript's numerator, proves nothing about `C_16`)
+6. `hankel_h3_bipartite_girth8_floor` (Theorem 2.4(c): the inequality `54 n (29 - n) < 0`; the manuscript's `C_6 ≥ 1` claim it was meant to support is false, see the Tutte 12-cage)
 7. `cubic_handshaking_cut_vertex_exclusion` (Theorem 2.5(a) Handshaking parity exclusion of cut-vertices)
 8. `order10_polynomial_eval_at_9` (Theorem 2.6(a) order-10 Chebyshev–Hashimoto polynomial `P_10(9) = 1026`)
 9. `order10_moore_graph_62_exclusion` (Theorem 2.6(b) Stieltjes/Hausdorff pinch ruling out the `(3,10)`-Moore graph at `n = 62`)
@@ -155,11 +163,14 @@ theorem chebyshev_hashimoto_variance_floor (n r S Q : Int)
       65538 * r * (n - r) + (n - r) * Q - 510 * (n - r) ^ 2 := by
   omega
 
-/-- **Theorem 5 (`girth9_c16_pos_up_to_131`, Theorem 2.4(b)).**
-    For every cubic graph of girth `g(G) ≥ 9` (`C_4 = C_6 = C_8 = 0`, so `N_16(G) = 0` and
-    `32 C_16(G) = Tr(B^16)`), the Chebyshev–Hashimoto variance floor numerator
-    `(65538 r - 510(n - r))(n - r) + (258 r + 2(n - r))^2` is strictly positive for all
-    `4 ≤ n ≤ 131` when `r = 1` and for all `4 ≤ n ≤ 262` when `r = 2`. -/
+/-- **Theorem 5 (`girth9_c16_pos_up_to_131`, intended for Theorem 2.4(b) of [Pa26]).**
+    Checks, by `decide`, that the integer polynomial
+    `(65538 r - 510(n - r))(n - r) + (258 r + 2(n - r))^2` is positive for `4 ≤ n ≤ 131`
+    when `r = 1` and for `4 ≤ n ≤ 262` when `r = 2`. Nothing about graphs is proved here.
+    Caveat (independent review, 2026-11-03): this polynomial does not match the
+    variance-floor numerator stated in the manuscript, so the check does not certify that
+    manuscript step; the intended graph statement (every cubic graph of girth at least 9 in
+    this range has a 16-cycle) is plausible but unproved. -/
 theorem girth9_c16_pos_up_to_131 :
     ((List.range 128).all (fun k =>
       let n : Int := (k : Int) + 4
@@ -169,12 +180,15 @@ theorem girth9_c16_pos_up_to_131 :
       (65538 * 2 - 510 * (n - 2)) * (n - 2) + (258 * 2 + 2 * (n - 2)) ^ 2 > 0)) = true := by
   decide
 
-/-- **Theorem 6 (`hankel_h3_bipartite_girth8_floor`, Theorem 2.4(c)).**
-    For any bipartite (`r = 2`) cubic graph on `n` vertices with `C_4(G) = C_6(G) = C_8(G) = 0`,
-    the `3 × 3` Hankel moment determinant of the non-trivial squared adjacency spectrum is
-    `det H_3(μ) = 54 n (29 - n)`, which is strictly negative for all `n ≥ 30`
-    (verified across `30 ≤ n ≤ 262` and for arbitrary `n ≥ 30` via `29 - n ≤ -1`),
-    contradicting positive semidefiniteness of `H_3(μ)` and proving `C_6(G) ≥ 1`. -/
+/-- **Theorem 6 (`hankel_h3_bipartite_girth8_floor`, intended for Theorem 2.4(c) of [Pa26]).**
+    Checks only the integer inequality `54 n (29 - n) < 0` for `30 ≤ n ≤ 262` and that
+    `29 - n ≤ -1` for `n ≥ 30`.
+    Correction (2026-11-03): the manuscript claimed that `det H_3(μ) = 54 n (29 - n)` for every
+    bipartite cubic graph with `C_4 = C_6 = C_8 = 0`, hence `C_6(G) ≥ 1` for `n ≥ 30`. That claim
+    is false: the Tutte 12-cage is a bipartite cubic graph on 126 vertices with girth 12, so it
+    has `C_4 = C_6 = C_8 = 0` and also `C_6 = 0`. An independent review recomputed the
+    determinant as `144 n^2 (n - 62)` in this case. This lemma does not establish anything about
+    `C_6`. -/
 theorem hankel_h3_bipartite_girth8_floor :
     ((List.range 233).all (fun k =>
       let n : Int := (k : Int) + 30
